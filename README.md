@@ -1,8 +1,3 @@
-# Starter Repository Template
+# Simple Love2D Game
 
-This Repository has a customized gitignore file
-ignores:
-VS CODE, Visual Studio, Eclipse IDE, Intellij IDEA, Python,
-Gradle, Maven.
-
-- added Visual Studio in gitignore 1/31/2023
+Making a simple Text based RPG style game in Love2D.
