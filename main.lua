@@ -141,8 +141,8 @@ love.graphics.setColor(255,255,255)
 
 -- Button Text
 love.graphics.setColor(0,0,0)
-love.graphics.print(attack.message,185,340)
-love.graphics.print(defend.message,485,340)
+love.graphics.print(attack.message,285,340)
+love.graphics.print(defend.message,500,340)
 love.graphics.setColor(255,255,255)
 --
 
