@@ -142,18 +142,18 @@ love.graphics.setColor(255,255,255)
 -- Button Text
 love.graphics.setColor(0,0,0)
 love.graphics.print(attack.message,285,340)
-love.graphics.print(defend.message,500,340)
+love.graphics.print(defend.message,550,340)
 love.graphics.setColor(255,255,255)
 --
 
 love.graphics.print("score:\t"..score,250,50)
 love.graphics.print("misses:\t"..miss,475,50)
 --
-love.graphics.print(player.name,200,100)
-love.graphics.print("life:\t"..player.life,200,115)
-love.graphics.print("str:\t"..player.str,200,130)
-love.graphics.print("dex:\t"..player.dex,200,145)
-love.graphics.print("VS.",250,100)
-love.graphics.print(npc.name,300,100)
-love.graphics.print("life:\t"..npc.life,300,115)
+love.graphics.print(player.name,250,100)
+love.graphics.print("life:\t"..player.life,250,115)
+love.graphics.print("str:\t"..player.str,250,130)
+love.graphics.print("dex:\t"..player.dex,250,145)
+love.graphics.print("VS.",400,100)
+love.graphics.print(npc.name,500,100)
+love.graphics.print("life:\t"..npc.life,500,115)
 end
