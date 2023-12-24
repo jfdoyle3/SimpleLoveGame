@@ -69,6 +69,8 @@ function love.load()
 	defend.message = "Defend"
 	defend.status = false
 	defend.points = 5
+	
+	buttonA=Button.new()
 
 end
 
@@ -76,7 +78,6 @@ function Button.new(name)
 	local instance=setmetatable({},Button)
 	instance.name=name
 	return instance
-
 end
 
 --[[
