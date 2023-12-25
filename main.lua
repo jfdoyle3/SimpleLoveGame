@@ -66,13 +66,19 @@ end
 ]]
 function love.mousepressed(x, y)
 --[[ Clickable area:
-		Square: x > start and x < start+width , y > start and y < start+height
+					posX           posX+sizeX
+		Square: x > start and x < start+width
+		
+			posY             posY+sizeY
+		y > start and y < start+height
 		 Circle: For a circle button at 20, 50 coordinates with 40 radius
 			math.sqrt((20-x)^2+(50-y)^2) <= 40
 	]]
-	if x > 200 and x < 300 and y > 100 and y < 200 then
+	if x > buttonA.posX and x < buttonA.posX+buttonA.sizeX and 
+       y > buttonA.posY and y < buttonA.posY+buttonA.sizeY then
 		buttonA.state = true
-	elseif x > 400 and x < 600 and y > 100 and y < 200 then
+	elseif x > buttonD.posX and x < buttonD.posX+buttonD.sizeX and 
+       y > buttonD.posY and y < buttonD.posY+buttonD.sizeY then
 		buttonD.state = true
 	end
 
