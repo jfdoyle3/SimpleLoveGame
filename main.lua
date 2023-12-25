@@ -52,10 +52,10 @@ function love.load()
 
 --[[	Button console output
 	
-	print(buttonA.title,buttonA.sizeX,buttonA.sizeY,buttonA.posX,buttonA.posY)
+	print(buttonA.title,buttonA.posX,buttonA.posY,buttonA.sizeX,buttonA.sizeY,buttonA.state)
 	print(buttonD.title)
-print(player.name,player.life,player.attack,player.defend,player.str,player.dex)
-print(npc.name,npc.life,npc.attack,npc.defend,npc.str,npc.dex,npc.friend)
+	print(player.name,player.life,player.attack,player.defend,player.str,player.dex)
+	print(npc.name,npc.life,npc.attack,npc.defend,npc.str,npc.dex,npc.friend)
 ]]
 
 
@@ -124,12 +124,12 @@ function love.draw()
 
 -- Attack Button
 	love.graphics.setColor(0,255,0)
-	love.graphics.rectangle("fill",buttonA.sizeX,buttonA.sizeY,buttonA.posX,buttonA.posY)
+	love.graphics.rectangle("fill",buttonA.posX,buttonA.posY,buttonA.sizeX,buttonA.sizeY)
 	love.graphics.setColor(255,255,255)
 
 -- Defend Button
 	love.graphics.setColor(255,0,0)
-	love.graphics.rectangle("fill",buttonD.sizeX,buttonD.sizeY,buttonD.posX,buttonD.posY)
+	love.graphics.rectangle("fill",buttonD.posX,buttonD.posY,buttonD.sizeX,buttonD.sizeY)
 	love.graphics.setColor(255,255,255)
 
 -- Text Layer
