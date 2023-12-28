@@ -115,11 +115,12 @@ function love.update()
 	]]
 --[[
 	Counts Rounds
+	]]
 	round=round+1
 	if round==10 then
 		os.exit()
 	end
-	]]
+	
 end
 
 --[[
