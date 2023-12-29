@@ -4,14 +4,13 @@
 Npc={}
 Npc.__index=Npc
 
-function Npc(name,life,attack,defend,str,dex,friend)
-	return {
-		name = name or "Nemesis",
-		life = life or 10,
-		attack = attack or 10,
-		defend = defend or 10,
-		str = str or 10,
-		dex = dex or 10,
-		friend=friend or false
-	}
+function Npc.new(name,life,attack,defend,str,dex)
+	local self=setmetatable({},Npc)
+	self.name=name or "Hero"
+	self.life = life or 10
+	self.attack = attack or 10
+	self.defend = defend or 10
+	self.str = str or 10
+	self.dex = dex or 10
+	return self
 end

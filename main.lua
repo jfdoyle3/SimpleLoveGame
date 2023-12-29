@@ -57,8 +57,7 @@ function love.load()
 	print(player.name,player.life,player.attack,player.defend,player.str,player.dex)
 	print(npc.name,npc.life,npc.attack,npc.defend,npc.str,npc.dex,npc.friend)
 ]]
-print(player.name,player.life,player.attack,player.defend,player.str,player.dex)
-print(player:attack())
+
 
 
 end
