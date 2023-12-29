@@ -8,9 +8,9 @@
 		Load / Update / Draw
 ]]
 
-require("button")
-require("player")
-require("npc")
+require("obj.button")
+require("obj.player")
+require("obj.npc")
 
 function love.load()
 --[[
@@ -25,10 +25,9 @@ function love.load()
 
 
 	math.randomseed(os.time())
-	target = math.random(10)
+	npcAction = math.random(10)
 
-	score = 0
-	miss = 0
+	
 	round = 0
 
 
@@ -62,7 +61,7 @@ function love.load()
 
 end
 --[[
-           Mouse Press
+           Mouse Press / Screen Tap
 	]]
 function love.mousepressed(x, y)
 
@@ -82,25 +81,34 @@ end
 		This function update every frame per sec
 		typical frame rate is 60
 		This function runs 60 times in 1 minute
+		
+		All Play combos:
+		-	Player Attack -> NPC Attack
+		-	Player Defend -> NPC Attack
+		-	Player Attack -> NPC Defend
+		-	Player Defend -> NPC Defend
+		
 ]]
 function love.update()
-	if buttonA.state and target%2 == 1 then
-		miss = miss+1
+	if buttonA.state and npcAction%2 == 1 then
+	    npcDefense=npcDefense+1 -- Player Attack -> NPC Defend
 		buttonA.state = false
+		npcAction = math.random(10)
 	end
-	if buttonD.state and target%2 == 0 then
-		miss = miss+1
+	if buttonD.state and npcAction%2 == 0 then
+		npcAttack=npcAttack+1  -- Player Defends -> NPC Attacks
 		buttonD.state = false
+		npcAction = math.random(10)
 	end
 	
-	if buttonA.state and target%2 == 0 then
-		score = score+1
+	if buttonA.state and npcAction%2 == 0 then
+		playerAttack = playerAttack+1 -- Player Attack -> NPC Attack       
 		buttonA.state = false
-		target = math.random(10)
-	elseif buttonD.state and target%2 == 1 then
-		score = score+1
+		npcAction = math.random(10)
+	elseif buttonD.state and npcAction%2 == 1 then
+		playerDefend=playerDefend+1  -- Player Defend -> NPC Defend
 		buttonD.state = false
-		target = math.random(10)
+		npcAction = math.random(10)
 	end
 
 --[[
@@ -141,16 +149,13 @@ function love.draw()
 	love.graphics.print(buttonA.title,285,340)
 	love.graphics.print(buttonD.title,550,340)
 	love.graphics.setColor(255,255,255)
---
 
-	love.graphics.print("score:\t"..score,250,50)
-	love.graphics.print("misses:\t"..miss,475,50)
+-- UI
 	love.graphics.print("Round:\t"..round,350,40)
---
 	love.graphics.print(player.name,250,100)
 	love.graphics.print("life:\t"..player.life,250,115)
-	love.graphics.print("str:\t"..player.str,250,130)
-	love.graphics.print("dex:\t"..player.dex,250,145)
+--	love.graphics.print("str:\t"..player.str,250,130)
+--	love.graphics.print("dex:\t"..player.dex,250,145)
 	love.graphics.print("VS.",400,100)
 	love.graphics.print(npc.name,500,100)
 	love.graphics.print("life:\t"..npc.life,500,115)
