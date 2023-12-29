@@ -77,9 +77,11 @@ function love.mousepressed(x, y)
 	if x > buttonA.posX and x < buttonA.posX+buttonA.sizeX and 
        y > buttonA.posY and y < buttonA.posY+buttonA.sizeY then
 		buttonA.state = true
+		round=round+1
 	elseif x > buttonD.posX and x < buttonD.posX+buttonD.sizeX and 
        y > buttonD.posY and y < buttonD.posY+buttonD.sizeY then
 		buttonD.state = true
+		round=round+1
 	end
 
 end
@@ -116,7 +118,7 @@ function love.update()
 --[[
 	Counts Rounds
 	]]
-	round=round+1
+
 	if round==10 then
 		os.exit()
 	end
@@ -150,6 +152,7 @@ function love.draw()
 
 	love.graphics.print("score:\t"..score,250,50)
 	love.graphics.print("misses:\t"..miss,475,50)
+	love.graphics.print("Round:\t"..round,350,40)
 --
 	love.graphics.print(player.name,250,100)
 	love.graphics.print("life:\t"..player.life,250,115)
