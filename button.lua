@@ -2,13 +2,18 @@
 	Button Ojbect
 ]]
 
-function Button(title,posX,posY,sizeX,sizeY,state)
-	return {
-		title=title or "Button",
-		sizeX=sizeX,
-		sizeY=sizeY,
-		posX=posX,
-		posY=posY,
-		state = state
-	}
+Button={}
+Button.__index=Button
+
+
+function Button.new(title,posX,posY,sizeX,sizeY,state)
+	local self=setmetatable({},Button)
+	
+	self.title=title or "Button"
+		self.sizeX=sizeX
+		self.sizeY=sizeY
+		self.posX=posX
+		self.posY=posY
+		self.state = statereturn 
+	return self
 end

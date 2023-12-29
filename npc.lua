@@ -1,6 +1,8 @@
 --[[
-	Player Ojbect
+	NPC Ojbect
 ]]
+Npc={}
+Npc.__index=Npc
 
 function Npc(name,life,attack,defend,str,dex,friend)
 	return {

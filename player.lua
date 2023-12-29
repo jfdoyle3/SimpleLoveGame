@@ -2,13 +2,21 @@
 	Player Ojbect
 ]]
 
-function Player(name,life,attack,defend,str,dex)
-	return {
-		name = name or "Hero",
-	life = life or 10,
-	attack = attack or 10,
-	defend = defend or 10,
-	str = str or 10,
-	dex = dex or 10,
-	}
+Player={}
+Player.__index=Player
+
+function Player.new(name,life,attack,defend,str,dex)
+	local self=setmetatable({},Player)
+	self.name=name or "Hero"
+	self.life = life or 10
+	self.attack = attack or 10
+	self.defend = defend or 10
+	self.str = str or 10
+	self.dex = dex or 10
+	return self
+end
+
+function Player:attack()
+
+	return self.attack
 end

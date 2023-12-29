@@ -40,46 +40,39 @@ function love.load()
 
 -- Buttons
 
-	buttonA=Button("Attack",200,300,200,100,false)
-	buttonD=Button("Defend",475,300,200,100,false)
+	buttonA=Button.new("Attack",200,300,200,100,false)
+	buttonD=Button.new("Defend",475,300,200,100,false)
 
 
 -- Player
-	player=Player()
+	player=Player.new()
 
 -- NPC
-	npc=Npc()
+	npc=Npc.new()
 
---[[	Button console output
+--[[	Object test console output
 	
 	print(buttonA.title,buttonA.posX,buttonA.posY,buttonA.sizeX,buttonA.sizeY,buttonA.state)
 	print(buttonD.title)
 	print(player.name,player.life,player.attack,player.defend,player.str,player.dex)
 	print(npc.name,npc.life,npc.attack,npc.defend,npc.str,npc.dex,npc.friend)
 ]]
-
+print(player.name,player.life,player.attack,player.defend,player.str,player.dex)
+print(player:attack())
 
 
 end
 --[[
            Mouse Press
-]]
-function love.mousepressed(x, y)
---[[ Clickable area:
-					posX           posX+sizeX
-		Square: x > start and x < start+width
-		
-			posY             posY+sizeY
-		y > start and y < start+height
-		 Circle: For a circle button at 20, 50 coordinates with 40 radius
-			math.sqrt((20-x)^2+(50-y)^2) <= 40
 	]]
+function love.mousepressed(x, y)
+
 	if x > buttonA.posX and x < buttonA.posX+buttonA.sizeX and 
        y > buttonA.posY and y < buttonA.posY+buttonA.sizeY then
 		buttonA.state = true
 		round=round+1
 	elseif x > buttonD.posX and x < buttonD.posX+buttonD.sizeX and 
-       y > buttonD.posY and y < buttonD.posY+buttonD.sizeY then
+           y > buttonD.posY and y < buttonD.posY+buttonD.sizeY then
 		buttonD.state = true
 		round=round+1
 	end
@@ -100,6 +93,7 @@ function love.update()
 		miss = miss+1
 		buttonD.state = false
 	end
+	
 	if buttonA.state and target%2 == 0 then
 		score = score+1
 		buttonA.state = false
