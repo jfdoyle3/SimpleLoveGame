@@ -27,8 +27,22 @@ function love.load()
 	math.randomseed(os.time())
 	npcAction = math.random(10)
 
-	
 	round = 0
+	
+	npcMiss=0
+	npcScore=0
+	playerScore=0
+	playerMiss=0
+	
+	
+	--[[
+	  Use last action and round for a key value
+	of game rounds logs for actionlog  
+	]]
+	
+	
+	lastAction={"Score","Miss"}
+	acionLog={}
 
 
 
@@ -88,25 +102,29 @@ end
 		-	Player Attack -> NPC Defend
 		-	Player Defend -> NPC Defend
 		
+		
+		math for damage:
+		attack - 1 = attackb
+		attackb - attack = total amount dmg
+		
 ]]
 function love.update()
 	if buttonA.state and npcAction%2 == 1 then
-	    npcDefense=npcDefense+1 -- Player Attack -> NPC Defend
+	    npcMiss=npcMiss+1 -- Player Attack -> NPC Defend
 		buttonA.state = false
 		npcAction = math.random(10)
-	end
-	if buttonD.state and npcAction%2 == 0 then
-		npcAttack=npcAttack+1  -- Player Defends -> NPC Attacks
+	elseif buttonD.state and npcAction%2 == 0 then
+		npcScore = npcScore + 1 -- Player Defend -> NPC Attack
 		buttonD.state = false
 		npcAction = math.random(10)
 	end
 	
 	if buttonA.state and npcAction%2 == 0 then
-		playerAttack = playerAttack+1 -- Player Attack -> NPC Attack       
+		playerScore = playerScore+1 -- Player Attack -> NPC Attack       
 		buttonA.state = false
 		npcAction = math.random(10)
 	elseif buttonD.state and npcAction%2 == 1 then
-		playerDefend=playerDefend+1  -- Player Defend -> NPC Defend
+		playerMiss=playerMiss+1  -- Player Defend -> NPC Defend
 		buttonD.state = false
 		npcAction = math.random(10)
 	end
