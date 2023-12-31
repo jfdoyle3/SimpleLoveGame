@@ -8,9 +8,9 @@
 		Load / Update / Draw
 ]]
 
-require("obj.button")
-require("obj.player")
-require("obj.npc")
+require("objects.button")
+require("objects.player")
+require("objects.npc")
 
 function love.load()
 --[[
