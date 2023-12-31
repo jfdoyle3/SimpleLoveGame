@@ -129,11 +129,7 @@ function love.update()
 		npcAction = math.random(10)
 	end
 
---[[
-		Putting this line of code
-		will randomize every second.
-	     target=math.random(10)
-	]]
+
 --[[
 	Counts Rounds
 	]]
