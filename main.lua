@@ -97,11 +97,12 @@ end
 		This function runs 60 times in 1 minute
 		
 		All Play combos:
-		-	Player Attack -> NPC Attack
+		-	Player Attack -> NPC Attack    
 		-	Player Defend -> NPC Attack
 		-	Player Attack -> NPC Defend
 		-	Player Defend -> NPC Defend
-		
+		NPC 0-5 - Attack
+		NPC 6-9 - Defend
 		
 		math for damage:
 		attack - 1 = attackb
@@ -109,27 +110,25 @@ end
 		
 ]]
 function love.update()
-	if buttonA.state and npcAction%2 == 1 then
-	    npcMiss=npcMiss+1 -- Player Attack -> NPC Defend
+	if buttonA.state and npcAction<5 and npcAction%2 == 1 then
+	    npcMiss=npcMiss+1 -- Player Attack -> NPC Defend 
 		buttonA.state = false
 		npcAction = math.random(10)
-	elseif buttonD.state and npcAction%2 == 0 then
+	elseif buttonD.state and npcAction<5 and npcAction%2 == 0 then
 		npcScore = npcScore + 1 -- Player Defend -> NPC Attack
 		buttonD.state = false
 		npcAction = math.random(10)
 	end
 	
-	if buttonA.state and npcAction%2 == 0 then
+	if buttonA.state and npcAction>6 and npcAction%2 == 0 then
 		playerScore = playerScore+1 -- Player Attack -> NPC Attack       
 		buttonA.state = false
 		npcAction = math.random(10)
-	elseif buttonD.state and npcAction%2 == 1 then
+	elseif buttonD.state and npcAction>6 and npcAction%2 == 1 then
 		playerMiss=playerMiss+1  -- Player Defend -> NPC Defend
 		buttonD.state = false
 		npcAction = math.random(10)
 	end
-
-
 --[[
 	Counts Rounds
 	]]
